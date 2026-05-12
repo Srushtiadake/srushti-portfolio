@@ -429,12 +429,27 @@ const SLIDES: Slide[] = [
 
 export function WorkShowcaseCarousel() {
   const [index, setIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const visibleRef = useRef(false);
 
   const slide = SLIDES[index];
 
   useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 767px)");
+    const updateMobileState = () => setIsMobile(mediaQuery.matches);
+
+    updateMobileState();
+    mediaQuery.addEventListener("change", updateMobileState);
+
+    return () => {
+      mediaQuery.removeEventListener("change", updateMobileState);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) return;
+
     const el = sectionRef.current;
     if (!el) return;
 
@@ -476,18 +491,18 @@ export function WorkShowcaseCarousel() {
       window.removeEventListener("scroll", updateIndexFromScroll);
       window.removeEventListener("keydown", onKeyDown);
     };
-  }, [index]);
+  }, [index, isMobile]);
 
   return (
     <section
       ref={sectionRef}
       id="selected-work"
-      className={`work-showcase ${slide.theme === "light" ? "work-showcase--light" : ""}`}
+      className={`work-showcase ${isMobile ? "work-showcase--mobile" : ""} ${slide.theme === "light" ? "work-showcase--light" : ""}`}
       style={{
         backgroundColor: slide.background,
         transition: "background-color 0.4s ease",
         scrollMarginTop: "0px",
-        height: `calc(${SLIDES.length} * 100vh)`,
+        height: isMobile ? "auto" : `calc(${SLIDES.length} * 100vh)`,
       }}
       aria-roledescription="carousel"
       aria-label="Selected work themes"
@@ -642,6 +657,13 @@ export function WorkShowcaseCarousel() {
                   onClick={() => {
                     const section = sectionRef.current;
                     if (!section) return;
+
+                    if (isMobile) {
+                      setIndex(i);
+                      section.scrollIntoView({ behavior: "smooth", block: "start" });
+                      return;
+                    }
+
                     const sectionTop = window.scrollY + section.getBoundingClientRect().top;
                     const top = sectionTop + i * window.innerHeight;
                     window.scrollTo({ top, behavior: "smooth" });

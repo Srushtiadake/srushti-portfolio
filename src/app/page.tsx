@@ -1,7 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import { Footer } from "@/components/Footer";
 import { HomeFAQs } from "@/components/HomeFAQs";
 import { WorkShowcaseCarousel } from "./components/WorkShowcaseCarousel";
+import { useState } from "react";
 
 const tools = [
   { name: "Figma", src: "/tools/figma.png" },
@@ -62,6 +65,15 @@ const journeyStops = [
 ];
 
 export default function Home() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navItems = ["WORK", "RESUME", "CONTACT"];
+  const getNavHref = (item: string) =>
+    item === "WORK"
+      ? "#selected-work"
+      : item === "CONTACT"
+        ? "mailto:adakesrushti@gmail.com"
+        : `/${item.toLowerCase()}`;
+
   return (
     <main
       style={{
@@ -72,6 +84,7 @@ export default function Home() {
     >
       {/* ── NAV ── */}
       <nav
+        className="home-nav"
         style={{
           display: "flex",
           justifyContent: "space-between",
@@ -91,17 +104,11 @@ export default function Home() {
         >
           Srushti.
         </span>
-        <div style={{ display: "flex", gap: "36px" }}>
-          {["WORK", "RESUME", "CONTACT"].map((item) => (
+        <div className="home-nav-links" style={{ display: "flex", gap: "36px" }}>
+          {navItems.map((item) => (
             <Link
               key={item}
-              href={
-                item === "WORK"
-                  ? "#selected-work"
-                  : item === "CONTACT"
-                    ? "mailto:adakesrushti@gmail.com"
-                    : `/${item.toLowerCase()}`
-              }
+              href={getNavHref(item)}
               style={{
                 fontFamily: "var(--font-dm-sans)",
                 fontSize: "11px",
@@ -115,10 +122,40 @@ export default function Home() {
             </Link>
           ))}
         </div>
+        <button
+          type="button"
+          className="home-mobile-menu-button"
+          aria-label="Open menu"
+          aria-expanded={isMobileMenuOpen}
+          onClick={() => setIsMobileMenuOpen(true)}
+        >
+          Menu
+        </button>
       </nav>
+
+      {isMobileMenuOpen ? (
+        <div className="home-mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+          <button
+            type="button"
+            className="home-mobile-menu-close"
+            aria-label="Close menu"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            ×
+          </button>
+          <div className="home-mobile-menu-links">
+            {navItems.map((item) => (
+              <Link key={item} href={getNavHref(item)} onClick={() => setIsMobileMenuOpen(false)}>
+                {item}
+              </Link>
+            ))}
+          </div>
+        </div>
+      ) : null}
 
       {/* ── HERO — full viewport ── */}
       <section
+        className="home-hero"
         style={{
           height: "calc(100vh - 62px)", // subtract nav height
           display: "flex",
@@ -153,6 +190,7 @@ export default function Home() {
 
           {/* Hello, I'm Srushti. — one line */}
           <h1
+            className="home-hero-title"
             style={{
               display: "flex",
               alignItems: "baseline",
@@ -187,6 +225,7 @@ export default function Home() {
 
           {/* Tagline */}
           <p
+            className="home-tagline"
             style={{
               fontFamily: "var(--font-dm-sans)",
               fontSize: "clamp(30px, 4vw, 54px)",
@@ -203,6 +242,7 @@ export default function Home() {
 
           {/* Meta pills */}
           <div
+            className="home-meta-row"
             style={{
               display: "flex",
               gap: "24px",
@@ -239,7 +279,7 @@ export default function Home() {
         >
           <a
             href="#selected-work"
-            className="explore-link"
+            className="explore-link home-explore-link"
             style={{
               fontFamily: "var(--font-dm-sans)",
               fontSize: "11px",

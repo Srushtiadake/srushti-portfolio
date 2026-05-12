@@ -20,6 +20,11 @@ html {
   scroll-behavior: smooth;
 }
 
+.home-mobile-menu-button,
+.home-mobile-menu {
+  display: none;
+}
+
 .explore-link {
   transition: color 220ms ease, letter-spacing 220ms ease, transform 220ms ease;
   transform: translateY(0);
@@ -1193,11 +1198,132 @@ html {
   max-width: 680px;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 767px) {
+  .home-nav {
+    padding: 16px !important;
+  }
+
+  .home-nav-links {
+    display: none !important;
+  }
+
+  .home-mobile-menu-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: transparent;
+    color: #1a1a1a;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .home-mobile-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: grid;
+    place-items: center;
+    background: #f7f6f3;
+  }
+
+  .home-mobile-menu-close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    border: none;
+    background: transparent;
+    color: #1a1a1a;
+    font-size: 36px;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .home-mobile-menu-links {
+    display: grid;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .home-mobile-menu-links a {
+    color: #1a1a1a;
+    font-size: 24px;
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+  }
+
+  .home-hero {
+    height: auto !important;
+    min-height: calc(100vh - 57px);
+    padding: 48px 16px !important;
+  }
+
+  .home-hero-title {
+    display: block !important;
+    margin-bottom: 20px !important;
+  }
+
+  .home-hero-title span {
+    font-size: 36px !important;
+    line-height: 1.05 !important;
+  }
+
+  .home-tagline {
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+    margin-bottom: 24px !important;
+  }
+
+  .home-meta-row {
+    justify-content: center;
+    gap: 10px !important;
+    text-align: center;
+    font-size: 14px !important;
+  }
+
+  .home-explore-link {
+    width: 100%;
+  }
+
+  .work-showcase {
+    padding: 48px 16px !important;
+  }
+
+  .work-content {
+    grid-template-columns: 1fr !important;
+    height: auto !important;
+    padding-top: 0;
+  }
+
+  .work-left,
+  .work-left--full,
+  .work-right,
+  .work-pagination-wrap {
+    grid-column: 1 !important;
+    grid-row: auto !important;
+  }
+
+  .work-glass-card {
+    width: 100%;
+    padding: 24px;
+  }
+
+  .work-pagination-wrap {
+    justify-self: start;
+    align-self: start;
+  }
+
+  .work-skill-strip {
+    padding: 18px 0 0 !important;
+  }
+
   .about-bento-section,
   .journey-section,
   .faqs-section {
-    padding: 64px 24px;
+    padding: 64px 16px;
   }
 
   .about-bento-grid {
@@ -1277,7 +1403,10 @@ html {
   }
 
   .tool-grid {
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px 12px;
+    justify-items: center;
   }
 
   .section-heading {
@@ -1327,6 +1456,22 @@ html {
 
   .faq-item {
     padding: 22px 20px;
+  }
+
+  .testimonials-section {
+    padding: 64px 16px !important;
+  }
+
+  .testimonials-track {
+    display: grid !important;
+    grid-auto-flow: row !important;
+    grid-auto-columns: unset !important;
+    grid-template-columns: 1fr;
+    overflow: visible !important;
+  }
+
+  .testimonial-card {
+    padding: 20px !important;
   }
 }
 
@@ -1477,5 +1622,162 @@ html {
 
   .testimonials-track {
     grid-auto-columns: minmax(300px, 88%);
+  }
+}
+
+@media (max-width: 767px) {
+  .home-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    padding: 18px 16px !important;
+    background: #f7f6f3;
+  }
+
+  .home-nav > span {
+    font-size: 22px !important;
+  }
+
+  .home-nav-links {
+    display: none !important;
+  }
+
+  .home-mobile-menu-button {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #d8d4cc;
+    border-radius: 999px;
+    background: #fff;
+    color: #1a1a1a;
+    padding: 10px 16px;
+    font-size: 14px;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  .home-mobile-menu-links a {
+    font-size: 28px;
+  }
+
+  .home-hero {
+    min-height: auto;
+  }
+
+  .home-hero-title span {
+    font-size: 42px !important;
+  }
+
+  .home-tagline {
+    font-size: 22px !important;
+    line-height: 1.45 !important;
+  }
+
+  .home-meta-row {
+    justify-content: flex-start;
+    text-align: left;
+    font-size: 15px !important;
+  }
+
+  .work-showcase.work-showcase--mobile {
+    height: auto !important;
+    min-height: 0;
+    padding: 56px 16px 64px !important;
+    overflow: hidden;
+  }
+
+  .work-showcase--mobile .work-sticky-shell {
+    position: relative !important;
+    top: auto;
+    height: auto !important;
+    min-height: 0;
+  }
+
+  .work-showcase--mobile .work-content {
+    display: grid;
+    grid-template-columns: 1fr !important;
+    height: auto !important;
+    gap: 22px;
+    padding-top: 0;
+  }
+
+  .work-showcase--mobile .work-left,
+  .work-showcase--mobile .work-left--full,
+  .work-showcase--mobile .work-pagination-wrap {
+    grid-column: 1 !important;
+    grid-row: auto !important;
+  }
+
+  .work-showcase--mobile .work-right {
+    display: none !important;
+  }
+
+  .work-showcase--mobile .work-title {
+    font-size: 38px;
+    line-height: 1.08;
+  }
+
+  .work-showcase--mobile .work-description {
+    font-size: 20px;
+    line-height: 1.45;
+  }
+
+  .work-showcase--mobile .work-cards,
+  .work-showcase--mobile .work-cards--dual,
+  .work-showcase--mobile .work-cards--grid4,
+  .work-showcase--mobile .work-cards-with-info {
+    grid-template-columns: 1fr !important;
+  }
+
+  .work-showcase--mobile .work-glass-card {
+    width: 100%;
+    padding: 24px;
+    border-radius: 18px;
+  }
+
+  .work-showcase--mobile .work-glass-title {
+    font-size: 24px;
+    line-height: 1.18;
+  }
+
+  .work-showcase--mobile .work-glass-desc {
+    font-size: 17px;
+    line-height: 1.55;
+  }
+
+  .work-showcase--mobile .work-card-image-slot {
+    height: 148px;
+  }
+
+  .work-showcase--mobile .work-pagination-wrap {
+    width: 100%;
+    justify-self: center;
+  }
+
+  .work-showcase--mobile .work-pagination {
+    width: 100%;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .work-showcase--mobile .work-pagination button {
+    width: 10px;
+    height: 10px;
+  }
+
+  .work-showcase--mobile .work-skill-strip {
+    padding: 20px 0 0 !important;
+  }
+
+  .work-showcase--mobile .work-skill-strip-inner {
+    justify-content: flex-start;
+  }
+
+  .work-showcase--mobile .work-skill-pill {
+    font-size: 13px;
+    padding: 8px 14px;
   }
 }

@@ -532,30 +532,37 @@ export default function ResumePage() {
           margin-top: 8px;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 767px) {
           .resume-topbar-inner {
-            padding: 0 24px;
+            padding: 0 16px;
           }
 
           .resume-shell {
             grid-template-columns: 1fr;
             gap: 0;
-            padding: 0 24px 56px;
+            padding: 0 16px 56px;
           }
 
           .resume-sidebar {
             position: static;
+            width: 100%;
             padding-top: 24px;
           }
 
           .resume-main {
+            width: 100%;
             padding-top: 32px;
             padding-left: 0;
             border-left: none;
           }
 
+          .resume-name-block h1 {
+            font-size: 32px;
+          }
+
           .resume-role-top {
-            display: grid;
+            flex-direction: column;
+            align-items: flex-start;
             gap: 4px;
           }
 

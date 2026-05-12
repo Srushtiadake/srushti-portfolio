@@ -284,7 +284,7 @@
 
 @media (max-width: 480px) {
   .impactGrid3 {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: repeat(2, 1fr) !important;
   }
 }
 

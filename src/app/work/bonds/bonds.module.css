@@ -739,3 +739,26 @@
 .userList li {
   margin-bottom: 8px;
 }
+
+@media (max-width: 767px) {
+  .overviewSerifHeading {
+    font-size: 24px;
+  }
+
+  .phaseDividerDark,
+  .phaseDividerAccent {
+    padding: 16px 0;
+  }
+
+  .phaseDividerInner {
+    padding: 0 16px;
+  }
+
+  .phaseDividerText {
+    font-size: 16px;
+  }
+
+  .featureGrid {
+    grid-template-columns: 1fr;
+  }
+}

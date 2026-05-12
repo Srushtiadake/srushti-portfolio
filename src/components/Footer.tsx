@@ -58,7 +58,7 @@ export function Footer() {
 
           <nav className="footer-nav" aria-label="Footer links">
             <a href="/work">Work</a>
-            <a href="#">Resume</a>
+            <a href="/resume">Resume</a>
             <a href="mailto:adakesrushti@gmail.com">Contact</a>
           </nav>
 
@@ -227,13 +227,13 @@ export function Footer() {
           line-height: 1.4;
         }
 
-        @media (max-width: 760px) {
+        @media (max-width: 767px) {
           .site-footer {
-            padding: 48px 24px 32px;
+            padding: 48px 16px 32px;
           }
 
           .footer-cta h2 {
-            font-size: 36px;
+            font-size: 30px;
           }
 
           .footer-cta-actions {
