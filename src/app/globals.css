@@ -1780,4 +1780,112 @@ html {
     font-size: 13px;
     padding: 8px 14px;
   }
+
+  .work-showcase.work-showcase--mobile {
+    padding: 0 !important;
+  }
+
+  .work-showcase--mobile .work-mobile-track {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .work-showcase--mobile .work-mobile-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .work-showcase--mobile .work-mobile-slide {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    padding: 64px 18px 34px;
+    color: #f4f4ef;
+  }
+
+  .work-showcase--mobile .work-title {
+    font-size: 40px;
+    line-height: 1.12;
+  }
+
+  .work-showcase--mobile .work-description {
+    font-size: 22px;
+    line-height: 1.45;
+  }
+
+  .work-showcase--mobile .work-glass-title {
+    font-size: 26px;
+  }
+
+  .work-showcase--mobile .work-glass-desc,
+  .work-showcase--mobile .work-info-text {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  .work-showcase--mobile .work-info-label {
+    font-size: 15px;
+  }
+
+  .work-showcase--mobile .work-cta {
+    font-size: 12px;
+    margin-top: 22px;
+  }
+
+  .work-showcase--mobile .work-pagination-wrap {
+    padding: 26px 0 20px;
+    margin: 0 18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.26);
+  }
+
+  .work-showcase--mobile.work-showcase--light .work-pagination-wrap {
+    border-top-color: rgba(26, 26, 26, 0.18);
+  }
+
+  .work-showcase--mobile .work-skill-strip {
+    border-top: none;
+    padding: 0 18px 64px !important;
+  }
+
+  .work-showcase--mobile .work-skill-strip-inner {
+    gap: 12px;
+  }
+
+  .home-mobile-menu-button {
+    width: 52px;
+    height: 40px;
+    padding: 0;
+    font-size: 24px;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  .bento-card--bio h2 {
+    margin-bottom: 16px;
+  }
+
+  .bento-card--bio p,
+  .bento-card li,
+  .skill-pill,
+  .journey-detail,
+  .faq-answer,
+  .testimonial-body {
+    font-size: 16px;
+  }
+
+  .section-heading h2 {
+    font-size: 36px;
+  }
+
+  .journey-stop h3 {
+    font-size: 21px;
+  }
+
+  .faq-question {
+    font-size: 18px;
+  }
 }

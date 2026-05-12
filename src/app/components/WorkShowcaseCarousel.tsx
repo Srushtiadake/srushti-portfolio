@@ -431,6 +431,7 @@ export function WorkShowcaseCarousel() {
   const [index, setIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+  const mobileTrackRef = useRef<HTMLDivElement>(null);
   const visibleRef = useRef(false);
 
   const slide = SLIDES[index];
@@ -493,6 +494,90 @@ export function WorkShowcaseCarousel() {
     };
   }, [index, isMobile]);
 
+  const renderCard = (card: Slide["cards"][number]) => {
+    const cardClassName = `work-glass-card ${card.clickable ? "work-glass-card--clickable" : "work-glass-card--info"}`;
+    const cardContent = (
+      <>
+        {card.showLogoSlot && (
+          <div
+            className={`work-card-logo-slot ${card.logoWhiteBg ? "work-card-logo-slot--white" : ""} ${card.logoSquare ? "work-card-logo-slot--square" : ""}`}
+            aria-hidden
+          >
+            {card.logoSrc ? <img src={card.logoSrc} alt="" className="work-card-logo-image" /> : null}
+          </div>
+        )}
+        {card.showImageSlot && (
+          <div className="work-card-image-slot" aria-hidden>
+            {card.imageSrc ? <img src={card.imageSrc} alt={card.imageAlt ?? ""} className="work-card-image" /> : null}
+          </div>
+        )}
+        <h3 className="work-glass-title">{card.title}</h3>
+        <p className="work-glass-desc">{card.description}</p>
+        {card.clickable ? <span className="work-cta">Open Case Study →</span> : null}
+        {!card.clickable && card.glanceProject ? <span className="work-cta">View at a glance →</span> : null}
+      </>
+    );
+
+    if (card.clickable) {
+      return (
+        <a key={card.title} className={cardClassName} href={card.href}>
+          {cardContent}
+        </a>
+      );
+    }
+
+    if (card.glanceProject) {
+      return (
+        <ProjectGlanceModal key={card.title} project={card.glanceProject} triggerClassName="project-glance-trigger-card">
+          <div className={cardClassName}>{cardContent}</div>
+        </ProjectGlanceModal>
+      );
+    }
+
+    return (
+      <div key={card.title} className={cardClassName}>
+        {cardContent}
+      </div>
+    );
+  };
+
+  const renderSlideContent = (activeSlide: Slide, activeIndex: number) => (
+    <>
+      <h2 className="work-title">{activeSlide.title}</h2>
+      <p className="work-description">{activeSlide.description}</p>
+      {activeSlide.infoBlock ? (
+        <div className="work-cards-with-info">
+          <div className={`work-cards ${activeSlide.cards.length > 1 ? "work-cards--dual" : ""}`}>
+            {activeSlide.cards.map(renderCard)}
+          </div>
+          <div className="work-inline-info">
+            <p className="work-info-heading">Also in this space</p>
+            <div className="work-info-entries">
+              {activeSlide.infoBlock.entries.map((entry, i) => (
+                <div key={`${entry.label ?? "entry"}-${i}`} className="work-info-entry">
+                  {entry.label && <p className="work-info-label">{entry.label}</p>}
+                  <p className="work-info-text">{entry.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div className={`work-cards ${activeIndex === 5 ? "work-cards--grid4" : activeSlide.cards.length > 1 ? "work-cards--dual" : ""}`}>
+          {activeSlide.cards.map(renderCard)}
+        </div>
+      )}
+    </>
+  );
+
+  const handleMobileTrackScroll = () => {
+    const track = mobileTrackRef.current;
+    if (!track) return;
+
+    const nextIndex = Math.round(track.scrollLeft / track.clientWidth);
+    setIndex((prev) => (prev === nextIndex ? prev : nextIndex));
+  };
+
   return (
     <section
       ref={sectionRef}
@@ -508,144 +593,36 @@ export function WorkShowcaseCarousel() {
       aria-label="Selected work themes"
     >
       <div className="work-sticky-shell">
-        <div className="work-content">
-          <div className={`work-left ${index === 5 ? "work-left--full" : ""}`} key={index}>
-            <h2 className="work-title">{slide.title}</h2>
-            <p className="work-description">{slide.description}</p>
-            {slide.infoBlock ? (
-              <div className="work-cards-with-info">
-                <div className={`work-cards ${slide.cards.length > 1 ? "work-cards--dual" : ""}`}>
-                  {slide.cards.map((card) =>
-                    card.clickable ? (
-                      <a key={card.title} className="work-glass-card work-glass-card--clickable" href={card.href}>
-                        {card.showLogoSlot && (
-                          <div
-                            className={`work-card-logo-slot ${card.logoWhiteBg ? "work-card-logo-slot--white" : ""} ${card.logoSquare ? "work-card-logo-slot--square" : ""}`}
-                            aria-hidden
-                          >
-                            {card.logoSrc ? (
-                              <img src={card.logoSrc} alt="" className="work-card-logo-image" />
-                            ) : null}
-                          </div>
-                        )}
-                        <h3 className="work-glass-title">{card.title}</h3>
-                        <p className="work-glass-desc">{card.description}</p>
-                        <span className="work-cta">Open Case Study →</span>
-                      </a>
-                    ) : (
-                      card.glanceProject ? (
-                        <ProjectGlanceModal
-                          key={card.title}
-                          project={card.glanceProject}
-                          triggerClassName="project-glance-trigger-card"
-                        >
-                          <div className="work-glass-card work-glass-card--info">
-                            {card.showImageSlot && (
-                              <div className="work-card-image-slot" aria-hidden>
-                                {card.imageSrc ? (
-                                  <img src={card.imageSrc} alt={card.imageAlt ?? ""} className="work-card-image" />
-                                ) : null}
-                              </div>
-                            )}
-                            <h3 className="work-glass-title">{card.title}</h3>
-                            <p className="work-glass-desc">{card.description}</p>
-                            <span className="work-cta">View at a glance →</span>
-                          </div>
-                        </ProjectGlanceModal>
-                      ) : (
-                        <div key={card.title} className="work-glass-card work-glass-card--info">
-                          {card.showImageSlot && (
-                            <div className="work-card-image-slot" aria-hidden>
-                              {card.imageSrc ? (
-                                <img src={card.imageSrc} alt={card.imageAlt ?? ""} className="work-card-image" />
-                              ) : null}
-                            </div>
-                          )}
-                          <h3 className="work-glass-title">{card.title}</h3>
-                          <p className="work-glass-desc">{card.description}</p>
-                        </div>
-                      )
-                    ),
-                  )}
+        {isMobile ? (
+          <div className="work-mobile-track" ref={mobileTrackRef} onScroll={handleMobileTrackScroll}>
+            {SLIDES.map((mobileSlide, mobileIndex) => (
+              <article
+                key={mobileSlide.title}
+                className={`work-mobile-slide ${mobileSlide.theme === "light" ? "work-showcase--light" : ""}`}
+                style={{ backgroundColor: mobileSlide.background }}
+              >
+                <div className={`work-left ${mobileIndex === 5 ? "work-left--full" : ""}`}>
+                  {renderSlideContent(mobileSlide, mobileIndex)}
                 </div>
-                <div className="work-inline-info">
-                  <p className="work-info-heading">Also in this space</p>
-                  <div className="work-info-entries">
-                    {slide.infoBlock.entries.map((entry, i) => (
-                      <div key={`${entry.label ?? "entry"}-${i}`} className="work-info-entry">
-                        {entry.label && <p className="work-info-label">{entry.label}</p>}
-                        <p className="work-info-text">{entry.text}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ) : (
-              <div className={`work-cards ${index === 5 ? "work-cards--grid4" : slide.cards.length > 1 ? "work-cards--dual" : ""}`}>
-                {slide.cards.map((card) =>
-                  card.clickable ? (
-                    <a key={card.title} className="work-glass-card work-glass-card--clickable" href={card.href}>
-                      {card.showLogoSlot && (
-                        <div
-                          className={`work-card-logo-slot ${card.logoWhiteBg ? "work-card-logo-slot--white" : ""} ${card.logoSquare ? "work-card-logo-slot--square" : ""}`}
-                          aria-hidden
-                        >
-                          {card.logoSrc ? (
-                            <img src={card.logoSrc} alt="" className="work-card-logo-image" />
-                          ) : null}
-                        </div>
-                      )}
-                      <h3 className="work-glass-title">{card.title}</h3>
-                      <p className="work-glass-desc">{card.description}</p>
-                      <span className="work-cta">Open Case Study →</span>
-                    </a>
-                  ) : (
-                    card.glanceProject ? (
-                      <ProjectGlanceModal
-                        key={card.title}
-                        project={card.glanceProject}
-                        triggerClassName="project-glance-trigger-card"
-                      >
-                        <div className="work-glass-card work-glass-card--info">
-                          {card.showImageSlot && (
-                            <div className="work-card-image-slot" aria-hidden>
-                              {card.imageSrc ? (
-                                <img src={card.imageSrc} alt={card.imageAlt ?? ""} className="work-card-image" />
-                              ) : null}
-                            </div>
-                          )}
-                          <h3 className="work-glass-title">{card.title}</h3>
-                          <p className="work-glass-desc">{card.description}</p>
-                          <span className="work-cta">View at a glance →</span>
-                        </div>
-                      </ProjectGlanceModal>
-                    ) : (
-                      <div key={card.title} className="work-glass-card work-glass-card--info">
-                        {card.showImageSlot && (
-                          <div className="work-card-image-slot" aria-hidden>
-                            {card.imageSrc ? (
-                              <img src={card.imageSrc} alt={card.imageAlt ?? ""} className="work-card-image" />
-                            ) : null}
-                          </div>
-                        )}
-                        <h3 className="work-glass-title">{card.title}</h3>
-                        <p className="work-glass-desc">{card.description}</p>
-                      </div>
-                    )
-                  ),
-                )}
-              </div>
-            )}
+              </article>
+            ))}
           </div>
+        ) : (
+          <div className="work-content">
+            <div className={`work-left ${index === 5 ? "work-left--full" : ""}`} key={index}>
+              {renderSlideContent(slide, index)}
+            </div>
 
-          <div
-            className={`work-right ${index === 5 ? "work-right--hidden" : ""}`}
-            aria-hidden={index === 5}
-          >
-            <ImageStack slideIndex={index} />
+            <div
+              className={`work-right ${index === 5 ? "work-right--hidden" : ""}`}
+              aria-hidden={index === 5}
+            >
+              <ImageStack slideIndex={index} />
+            </div>
           </div>
+        )}
 
-          <div className="work-pagination-wrap">
+        <div className="work-pagination-wrap">
             <nav className="work-pagination" aria-label="Carousel slides">
               {SLIDES.map((s, i) => (
                 <button
@@ -660,7 +637,13 @@ export function WorkShowcaseCarousel() {
 
                     if (isMobile) {
                       setIndex(i);
-                      section.scrollIntoView({ behavior: "smooth", block: "start" });
+                      const track = mobileTrackRef.current;
+                      if (track) {
+                        track.scrollTo({
+                          left: i * track.clientWidth,
+                          behavior: "smooth",
+                        });
+                      }
                       return;
                     }
 
@@ -671,7 +654,6 @@ export function WorkShowcaseCarousel() {
                 />
               ))}
             </nav>
-          </div>
         </div>
         <div className="work-skill-strip" aria-label="Slide skills">
           <div className="work-skill-strip-inner">

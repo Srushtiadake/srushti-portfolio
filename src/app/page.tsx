@@ -129,7 +129,7 @@ export default function Home() {
           aria-expanded={isMobileMenuOpen}
           onClick={() => setIsMobileMenuOpen(true)}
         >
-          Menu
+          ☰
         </button>
       </nav>
 
