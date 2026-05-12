@@ -405,10 +405,10 @@ export default function InstoreCaseStudyPage() {
       <div className={study.shell}>
         <div className={study.ctaRow}>
           <Link href="/work/costco" className={study.ctaLink}>
-            ← Costco App
+            ← Previous Project
           </Link>
-          <Link href="/work/hri" className={study.ctaLink}>
-            HRI Research →
+          <Link href="/work/re-analytics" className={study.ctaLink}>
+            Next Project →
           </Link>
         </div>
       </div>

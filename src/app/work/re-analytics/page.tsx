@@ -289,11 +289,11 @@ export default function ReAnalyticsCaseStudyPage() {
 
       <div className={study.shell}>
         <div className={study.ctaRow}>
-          <Link href="/work/mission-sui" className={study.ctaLink}>
-            ← Mission SUI
+          <Link href="/work/instore" className={study.ctaLink}>
+            ← Previous Project
           </Link>
-          <Link href="/work/yubi" className={study.ctaLink}>
-            Yubi →
+          <Link href="/work/mission-sui" className={study.ctaLink}>
+            Next Project →
           </Link>
         </div>
       </div>

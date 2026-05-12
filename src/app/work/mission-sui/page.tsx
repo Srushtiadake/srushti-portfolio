@@ -313,11 +313,11 @@ export default function MissionSuiCaseStudyPage() {
 
       <div className={study.shell}>
         <div className={study.ctaRow}>
-          <Link href="/work/sally-beauty" className={study.ctaLink}>
-            ← Sally Beauty
+          <Link href="/work/re-analytics" className={study.ctaLink}>
+            ← Previous Project
           </Link>
-          <Link href="/work/yubi" className={study.ctaLink}>
-            Yubi →
+          <Link href="/work/sally-beauty" className={study.ctaLink}>
+            Next Project →
           </Link>
         </div>
       </div>

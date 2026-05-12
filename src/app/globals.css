@@ -446,7 +446,10 @@ html {
 }
 
 .work-pagination-wrap {
-  position: relative;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
   display: flex;
   justify-content: center;
   z-index: 3;
@@ -1837,6 +1840,10 @@ html {
   }
 
   .work-showcase--mobile .work-pagination-wrap {
+    position: relative;
+    top: auto;
+    right: auto;
+    transform: none;
     padding: 26px 0 20px;
     margin: 0 18px;
     border-top: 1px solid rgba(255, 255, 255, 0.26);

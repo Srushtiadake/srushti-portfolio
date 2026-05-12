@@ -600,11 +600,11 @@ export default function CostcoCaseStudyPage() {
 
       <div className={study.shell}>
         <div className={study.ctaRow}>
-          <Link href="/work/re-analytics" className={study.ctaLink}>
-            ← RE Analytics
-          </Link>
           <Link href="/work/cbre" className={study.ctaLink}>
-            CBRE →
+            ← Previous Project
+          </Link>
+          <Link href="/work/instore" className={study.ctaLink}>
+            Next Project →
           </Link>
         </div>
       </div>

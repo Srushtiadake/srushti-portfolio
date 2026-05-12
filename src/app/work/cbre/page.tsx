@@ -429,11 +429,11 @@ export default function CbreCaseStudyPage() {
 
       <div className={study.shell}>
         <div className={study.ctaRow}>
-          <Link href="/work/instore" className={study.ctaLink}>
-            ← In-Store Research
+          <Link href="/work/bonds" className={study.ctaLink}>
+            ← Previous Project
           </Link>
           <Link href="/work/costco" className={study.ctaLink}>
-            Costco App →
+            Next Project →
           </Link>
         </div>
       </div>

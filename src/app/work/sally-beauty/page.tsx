@@ -466,10 +466,10 @@ export default function SallyBeautyCaseStudyPage() {
 
       <div className={styles.shell}>
         <div className={styles.ctaRow}>
-          <Link href="/#selected-work" className={styles.ctaLink}>
-            ← Previous
+          <Link href="/work/mission-sui" className={styles.ctaLink}>
+            ← Previous Project
           </Link>
-          <Link href="/work/yubi" className={styles.ctaLink}>
+          <Link href="/work/bonds" className={styles.ctaLink}>
             Next Project →
           </Link>
         </div>

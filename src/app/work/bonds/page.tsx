@@ -743,11 +743,11 @@ export default function BondsCaseStudyPage() {
 
       <div className={study.shell}>
         <div className={study.ctaRow}>
-          <Link href="/work/cbre" className={study.ctaLink}>
-            ← CBRE
+          <Link href="/work/sally-beauty" className={study.ctaLink}>
+            ← Previous Project
           </Link>
-          <Link href="/work/disney" className={study.ctaLink}>
-            Disney →
+          <Link href="/work/cbre" className={study.ctaLink}>
+            Next Project →
           </Link>
         </div>
       </div>

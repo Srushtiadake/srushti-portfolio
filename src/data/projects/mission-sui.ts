@@ -124,11 +124,11 @@ export const missionSui = {
     },
   ],
   images: {
-    hero: "/projects/mission-sui/hero.png",
-    theShift: "/projects/mission-sui/the-shift.png",
-    competitiveAnalysis: "/projects/mission-sui/competitive-analysis.png",
-    simulator: "/projects/mission-sui/simulator.png",
-    learningLoop: "/projects/mission-sui/learning-loop.png",
-    futureVision: "/projects/mission-sui/future-vision.png",
+    hero: "/Projects/mission-SUI/hero.png",
+    theShift: "/Projects/mission-SUI/the-shift.png",
+    competitiveAnalysis: "/Projects/mission-SUI/competitive-analysis.png",
+    simulator: "/Projects/mission-SUI/simulator.png",
+    learningLoop: "/Projects/mission-SUI/learning-loop.png",
+    futureVision: "/Projects/mission-SUI/future-vision.png",
   },
 };
