@@ -16,8 +16,32 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Srushti — Product Designer",
-  description: "UX Portfolio",
+  title: "Srushti Adake — Product Designer",
+  description:
+    "Product Designer with 3+ years experience in UX Research, AI-powered design, and design systems. Previously at Splunk, CBRE, and Capgemini. MS HCI at UT Austin.",
+  keywords: [
+    "Srushti Adake",
+    "Product Designer",
+    "UX Designer",
+    "UX Researcher",
+    "AI Design",
+    "Design Systems",
+    "UT Austin",
+    "Portfolio",
+  ],
+  authors: [{ name: "Srushti Adake" }],
+  openGraph: {
+    title: "Srushti Adake — Product Designer",
+    description: "Product Designer with 3+ years experience. Previously at Splunk, CBRE, and Capgemini.",
+    url: "https://srushti-adake.vercel.app",
+    siteName: "Srushti Adake Portfolio",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Srushti Adake — Product Designer",
+    description: "Product Designer with 3+ years experience. Previously at Splunk, CBRE, and Capgemini.",
+  },
 };
 
 export default function RootLayout({

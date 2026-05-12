@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://srushti-adake.vercel.app/sitemap.xml
