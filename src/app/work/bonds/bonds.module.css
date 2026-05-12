@@ -1,0 +1,741 @@
+/* Bonds case study — page-specific layouts */
+
+@media (min-width: 721px) {
+  .metaGridDivided {
+    gap: 0 !important;
+    column-gap: 0 !important;
+  }
+
+  .metaGridDivided > div {
+    padding-left: 20px;
+    padding-right: 20px;
+    border-left: 1px solid #e8e6e0;
+  }
+
+  .metaGridDivided > div:first-child {
+    padding-left: 0;
+    border-left: none;
+  }
+
+  .metaGridDivided > div:last-child {
+    padding-right: 0;
+  }
+}
+
+.overviewSerifHeading {
+  font-family: var(--font-instrument-serif), "Instrument Serif", Georgia, serif;
+  font-size: clamp(34px, 5vw, 50px);
+  line-height: 1.08;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin-bottom: 18px;
+}
+
+.mutedItalic {
+  margin: 6px 0 14px;
+  color: #888;
+  font-size: 17px;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.planeRow {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin-top: 20px;
+}
+
+@media (max-width: 920px) {
+  .planeRow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.planePill {
+  border: 1px solid #e8e6e0;
+  border-radius: 8px;
+  padding: 16px;
+  background: #fff;
+}
+
+.planeNumber {
+  font-size: 14px;
+  font-weight: 700;
+  color: #5b5bd6;
+  margin-bottom: 6px;
+}
+
+.planeName {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 6px;
+}
+
+.planeFocus {
+  margin: 0;
+  font-size: 13px;
+  color: #888;
+  line-height: 1.45;
+}
+
+.stack24 {
+  margin-top: 24px;
+}
+
+.painPointGrid {
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (max-width: 640px) {
+  .painPointGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.journeySharedMap {
+  margin-top: 18px;
+  border: 1px solid #e8e6e0;
+  border-radius: 12px;
+  padding: 16px;
+  background: #fff;
+}
+
+.journeySharedTitle {
+  margin: 0 0 10px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #666;
+  font-weight: 700;
+}
+
+.journeyStageRow {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+}
+
+@media (max-width: 900px) {
+  .journeyStageRow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.journeyStagePill {
+  border: 1px solid #d7d3cb;
+  border-radius: 999px;
+  padding: 8px 10px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1a1a;
+  background: #f8f7f4;
+}
+
+.entryPointGrid {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+@media (max-width: 760px) {
+  .entryPointGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.entryPointCard {
+  border-left: 3px solid #5b5bd6;
+  background: #f6f7ff;
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+
+.entryPointLabel {
+  margin: 0 0 6px;
+  font-size: 13px;
+  color: #404080;
+  font-weight: 700;
+}
+
+.entryPointBody {
+  margin: 0;
+  font-size: 14px;
+  color: #3b3b3b;
+  line-height: 1.45;
+}
+
+.painSplit {
+  margin-top: 8px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+@media (max-width: 860px) {
+  .painSplit {
+    grid-template-columns: 1fr;
+  }
+}
+
+.painGroup {
+  border: 1px solid #e8e6e0;
+  border-radius: 12px;
+  padding: 14px;
+  background: #fff;
+}
+
+.painGroupTitle {
+  margin: 0 0 12px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.painPointGridPersona {
+  display: grid;
+  gap: 10px;
+}
+
+.painPointCard {
+  background: #fff5f5;
+  border: 1px solid #ffcdd2;
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: #dc1e35;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.skeletonDivider {
+  border: none;
+  border-top: 1px solid #e8e6e0;
+  margin: 36px 0 20px;
+}
+
+.methodBadge {
+  display: inline-block;
+  margin-top: 8px;
+  background: #1a1a1a;
+  color: #fff;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px 14px;
+}
+
+.evalSplit {
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+@media (max-width: 760px) {
+  .evalSplit {
+    grid-template-columns: 1fr;
+  }
+}
+
+.evalColHeading {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.taskList,
+.factorList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.taskItem {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.taskNum {
+  background: #eef2ff;
+  color: #5b5bd6;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 8px;
+  margin-top: 1px;
+}
+
+.taskText {
+  font-size: 15px;
+  color: #1a1a1a;
+  line-height: 1.45;
+}
+
+.factorItem {
+  margin-bottom: 10px;
+  font-size: 15px;
+  line-height: 1.45;
+  color: #666;
+}
+
+.expertGrid {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.expertCard {
+  border: 1px solid #e8e6e0;
+  border-radius: 8px;
+  padding: 16px;
+  background: #fff;
+}
+
+.expertType {
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.expertDesc {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.flowCaptionTitle {
+  margin: 0 0 6px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #666;
+  font-weight: 700;
+}
+
+.flowCaptionBody {
+  margin: 0 0 12px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #3d3d3d;
+}
+
+.flowImageStack {
+  display: grid;
+  gap: 0;
+}
+
+.flowImageNoGap {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.ecommerceHeadingFirst {
+  margin-top: 0;
+}
+
+.ecommerceHeadingSecond {
+  margin-top: 64px;
+}
+
+.retailEcommerceList {
+  margin-top: 20px;
+}
+
+.retailImageFlowStack {
+  margin-top: 56px;
+}
+
+.retailEcommerceSubtitle {
+  font-family: var(--font-dm-sans), "DM Sans", system-ui, sans-serif;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.35;
+  margin-bottom: 12px;
+  color: #1a1a1a;
+  letter-spacing: -0.01em;
+}
+
+.wealthFlowSection {
+  padding-top: 0;
+  padding-bottom: 72px;
+}
+
+.retailInterfaceSection {
+  padding-top: 72px;
+  padding-bottom: 88px;
+}
+
+.afterImageText {
+  margin: 14px 0 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #666;
+}
+
+.evalApproachGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+@media (max-width: 860px) {
+  .evalApproachGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.evalApproachCard {
+  border: 1px solid #e8e6e0;
+  border-radius: 12px;
+  background: #fff;
+  padding: 16px;
+}
+
+.evalApproachTitle {
+  margin: 0 0 10px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.evalApproachLead {
+  margin: 0 0 10px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #666;
+}
+
+.evalApproachSubhead {
+  margin: 10px 0 6px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: #5b5bd6;
+}
+
+.evalApproachList {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 6px;
+  font-size: 14px;
+  line-height: 1.45;
+  color: #333;
+}
+
+.evalApproachNote {
+  margin: 10px 0 0;
+  font-size: 13px;
+  line-height: 1.45;
+  color: #666;
+}
+
+.approachQuickGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+@media (max-width: 900px) {
+  .approachQuickGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.approachQuickCard {
+  border: 1px solid #ece8df;
+  background: #faf9f6;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.chipRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.quickChip {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #dfd9ce;
+  background: #fff;
+  border-radius: 999px;
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.25;
+  color: #383838;
+}
+
+.broaderSummary {
+  margin-top: 14px;
+  border: 1px solid #e8e6e0;
+  border-radius: 12px;
+  background: #fff;
+  padding: 14px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+@media (max-width: 760px) {
+  .broaderSummary {
+    grid-template-columns: 1fr;
+  }
+}
+
+.phaseDividerDark,
+.phaseDividerAccent {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding: 24px 0;
+}
+
+.phaseDividerDark {
+  background: #1a1a1a;
+}
+
+.phaseDividerAccent {
+  background: #5b5bd6;
+}
+
+.phaseDividerInner {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.phaseDividerText {
+  margin: 0;
+  color: #fff;
+  font-family: var(--font-instrument-serif), "Instrument Serif", Georgia, serif;
+  font-size: 20px;
+  line-height: 1.3;
+  font-style: italic;
+}
+
+.noteCallout {
+  margin-top: 16px;
+  padding: 16px 20px;
+  border-radius: 8px;
+  background: #f0efe9;
+  color: #555;
+  font-size: 15px;
+  line-height: 1.55;
+  font-style: italic;
+}
+
+.issueStack {
+  margin-top: 20px;
+  display: grid;
+  gap: 14px;
+}
+
+.issueCard {
+  background: #fff;
+  border: 1px solid #e8e6e0;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.issueScreen {
+  margin: 0 0 12px;
+  padding-left: 10px;
+  border-left: 3px solid #dc1e35;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.issueList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.issueItem {
+  margin-bottom: 10px;
+  font-size: 15px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.imgLabel {
+  margin: 0 0 8px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #888;
+}
+
+.featureGrid {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.featurePill {
+  background: #f0f0ff;
+  border: 1px solid #c7c7f0;
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: #5b5bd6;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.learningsGrid {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 14px;
+}
+
+@media (max-width: 900px) {
+  .learningsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.learningCard {
+  border: 1px solid #e8e6e0;
+  border-radius: 12px;
+  padding: 24px;
+  background: transparent;
+}
+
+.learningTitle {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.learningBody {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: #666;
+}
+
+.reflectPullQuote {
+  font-family: var(--font-instrument-serif), "Instrument Serif", Georgia, serif;
+  font-size: 26px;
+  line-height: 1.35;
+  font-style: italic;
+  color: #1a1a1a;
+  margin: 8px 0 0;
+  max-width: 720px;
+}
+
+.userUnderstandingBlock {
+  margin-top: 28px;
+}
+
+.userUnderstandingLabel {
+  margin: 0 0 8px;
+  font-size: 12px;
+  color: #888;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+}
+
+.userUnderstandingTitle {
+  margin: 0 0 8px;
+  font-family: var(--font-dm-sans), "DM Sans", system-ui, sans-serif;
+  font-size: clamp(20px, 2.4vw, 28px);
+  line-height: 1.18;
+  font-weight: 600;
+  max-width: 680px;
+}
+
+.userUnderstandingText {
+  margin: 0 0 14px;
+  color: #666;
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.audienceStack {
+  display: grid;
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.audienceCard {
+  background: #fbfaf7;
+  border: 1px solid #e8e6e0;
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.audienceHeader {
+  margin-bottom: 14px;
+}
+
+.audienceContent {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  padding-top: 14px;
+  border-top: 1px solid #ece8df;
+}
+
+@media (max-width: 900px) {
+  .audienceContent {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
+.userType {
+  margin: 0 0 4px;
+  color: #1a7c74;
+  font-size: 24px;
+  line-height: 1.1;
+  font-weight: 600;
+}
+
+.userMeta {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+}
+
+.userSubhead {
+  margin: 0 0 8px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+}
+
+.userList {
+  margin: 0;
+  padding-left: 1.1em;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #1f1f1f;
+}
+
+.userList li {
+  margin-bottom: 8px;
+}
