@@ -229,38 +229,81 @@ export function Footer() {
 
         @media (max-width: 767px) {
           .site-footer {
-            padding: 48px 16px 32px;
+            padding: 56px 16px calc(32px + env(safe-area-inset-bottom));
           }
 
           .footer-cta h2 {
-            font-size: 30px;
+            font-size: clamp(34px, 10vw, 42px);
+            line-height: 1.05;
+            margin-bottom: 24px;
           }
 
           .footer-cta-actions {
             flex-direction: column;
             gap: 12px;
+            align-items: stretch;
           }
 
           .footer-button {
             width: 100%;
+            min-height: 48px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 24px;
             text-align: center;
+            font-size: 15px;
+          }
+
+          .footer-divider {
+            margin: 48px 0 28px;
           }
 
           .footer-links-row {
             flex-direction: column;
             text-align: center;
-            gap: 24px;
+            gap: 28px;
+          }
+
+          .footer-brand p {
+            font-size: 18px;
+            margin-bottom: 8px;
+          }
+
+          .footer-brand span {
+            display: block;
+            max-width: 260px;
+            font-size: 13px;
+            line-height: 1.5;
           }
 
           .footer-nav {
             justify-content: center;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 10px 12px;
+          }
+
+          .footer-nav a {
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 12px;
+            font-size: 15px;
           }
 
           .footer-social {
             justify-content: center;
-            gap: 16px;
+            gap: 12px;
+          }
+
+          .footer-social a {
+            width: 44px;
+            height: 44px;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 999px;
           }
 
           .footer-copyright {
@@ -268,6 +311,14 @@ export function Footer() {
             align-items: center;
             text-align: center;
             gap: 8px;
+            padding-top: 22px;
+            margin-top: 28px;
+          }
+
+          .footer-copyright p {
+            max-width: 280px;
+            font-size: 12px;
+            line-height: 1.5;
           }
         }
       `}</style>
