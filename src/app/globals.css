@@ -1422,35 +1422,28 @@ html {
 
   .journey-timeline {
     grid-template-columns: 1fr;
-    gap: 0;
-    padding-left: 26px;
-    margin-bottom: 28px;
+    gap: 22px;
+    padding-left: 0;
+    margin-bottom: 32px;
   }
 
   .journey-timeline::before {
-    content: "";
-    position: absolute;
-    background: #d8d4cc;
-    top: 0;
-    bottom: 0;
-    left: 13px;
-    right: auto;
-    width: 1px;
-    height: auto;
+    display: none;
   }
 
   .journey-stop {
     justify-items: start;
     text-align: left;
-    padding-bottom: 34px;
+    padding: 24px;
   }
 
   .journey-dot {
-    position: absolute;
-    left: -26px;
-    top: 0;
-    width: 26px;
-    height: 26px;
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 22px;
+    height: 22px;
+    margin-bottom: 18px;
   }
 
   .voice-articles {
