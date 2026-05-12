@@ -533,41 +533,175 @@ export default function ResumePage() {
         }
 
         @media (max-width: 767px) {
+          .resume-topbar {
+            padding: 14px 0;
+          }
+
           .resume-topbar-inner {
             padding: 0 16px;
+            gap: 12px;
+          }
+
+          .resume-back,
+          .resume-download {
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+          }
+
+          .resume-download {
+            padding: 11px 16px;
           }
 
           .resume-shell {
             grid-template-columns: 1fr;
             gap: 0;
-            padding: 0 16px 56px;
+            padding: 0 16px 64px;
           }
 
           .resume-sidebar {
             position: static;
             width: 100%;
-            padding-top: 24px;
+            padding-top: 32px;
           }
 
           .resume-main {
             width: 100%;
-            padding-top: 32px;
+            padding-top: 40px;
             padding-left: 0;
             border-left: none;
           }
 
           .resume-name-block h1 {
-            font-size: 32px;
+            font-size: 38px;
+            line-height: 1;
+          }
+
+          .resume-name-block p {
+            font-size: 14px;
+            line-height: 1.4;
+          }
+
+          .resume-rule {
+            margin: 24px 0;
+          }
+
+          .resume-contact {
+            gap: 12px;
+          }
+
+          .resume-contact p,
+          .resume-contact a {
+            min-height: 28px;
+            font-size: 15px;
+            line-height: 1.45;
+          }
+
+          .resume-label {
+            font-size: 11px;
+            margin-bottom: 16px;
+          }
+
+          .resume-skill-groups {
+            gap: 20px;
+          }
+
+          .resume-skill-group h2 {
+            font-size: 13px;
+            margin-bottom: 8px;
+          }
+
+          .resume-pills {
+            gap: 8px;
+          }
+
+          .resume-pills span {
+            font-size: 14px;
+            line-height: 1.35;
+            padding: 7px 12px;
+          }
+
+          .resume-stack {
+            gap: 22px;
+          }
+
+          .resume-small-entry h2,
+          .resume-honor h2 {
+            font-size: 16px;
+            line-height: 1.35;
+          }
+
+          .resume-small-entry p {
+            font-size: 15px;
+            line-height: 1.5;
+          }
+
+          .resume-small-entry span,
+          .resume-honor p,
+          .resume-small-entry em {
+            font-size: 14px;
+            line-height: 1.5;
+          }
+
+          .resume-summary {
+            margin-bottom: 44px;
+          }
+
+          .resume-summary > p {
+            font-size: 24px;
+            line-height: 1.35;
+          }
+
+          .resume-value-pills {
+            gap: 10px;
+          }
+
+          .resume-value-pills span {
+            font-size: 14px;
+            padding: 8px 14px;
+          }
+
+          .resume-role {
+            padding-bottom: 34px;
+            margin-bottom: 34px;
           }
 
           .resume-role-top {
             flex-direction: column;
             align-items: flex-start;
-            gap: 4px;
+            gap: 6px;
+          }
+
+          .resume-role-top h2 {
+            font-size: 19px;
+            line-height: 1.25;
           }
 
           .resume-role-top span {
             white-space: normal;
+            font-size: 15px;
+          }
+
+          .resume-role-title {
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 16px;
+          }
+
+          .resume-bullets {
+            gap: 12px;
+          }
+
+          .resume-bullets p {
+            font-size: 16px;
+            line-height: 1.75;
+          }
+
+          .resume-updated {
+            font-size: 13px;
+            line-height: 1.5;
           }
         }
       `}</style>
