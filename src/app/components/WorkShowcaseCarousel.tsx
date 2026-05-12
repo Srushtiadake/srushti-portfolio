@@ -430,8 +430,10 @@ const SLIDES: Slide[] = [
 export function WorkShowcaseCarousel() {
   const [index, setIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [mobileTrackHeight, setMobileTrackHeight] = useState<number | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const mobileTrackRef = useRef<HTMLDivElement>(null);
+  const mobileSlideRefs = useRef<Array<HTMLElement | null>>([]);
   const visibleRef = useRef(false);
 
   const slide = SLIDES[index];
@@ -578,6 +580,31 @@ export function WorkShowcaseCarousel() {
     setIndex((prev) => (prev === nextIndex ? prev : nextIndex));
   };
 
+  useEffect(() => {
+    if (!isMobile) {
+      setMobileTrackHeight(null);
+      return;
+    }
+
+    const activeSlide = mobileSlideRefs.current[index];
+    if (!activeSlide) return;
+
+    const updateHeight = () => {
+      setMobileTrackHeight(activeSlide.scrollHeight);
+    };
+
+    updateHeight();
+
+    const resizeObserver = new ResizeObserver(updateHeight);
+    resizeObserver.observe(activeSlide);
+    window.addEventListener("resize", updateHeight);
+
+    return () => {
+      resizeObserver.disconnect();
+      window.removeEventListener("resize", updateHeight);
+    };
+  }, [index, isMobile]);
+
   return (
     <section
       ref={sectionRef}
@@ -594,10 +621,18 @@ export function WorkShowcaseCarousel() {
     >
       <div className="work-sticky-shell">
         {isMobile ? (
-          <div className="work-mobile-track" ref={mobileTrackRef} onScroll={handleMobileTrackScroll}>
+          <div
+            className="work-mobile-track"
+            ref={mobileTrackRef}
+            style={{ height: mobileTrackHeight ? `${mobileTrackHeight}px` : undefined }}
+            onScroll={handleMobileTrackScroll}
+          >
             {SLIDES.map((mobileSlide, mobileIndex) => (
               <article
                 key={mobileSlide.title}
+                ref={(el) => {
+                  mobileSlideRefs.current[mobileIndex] = el;
+                }}
                 className={`work-mobile-slide ${mobileSlide.theme === "light" ? "work-showcase--light" : ""}`}
                 style={{ backgroundColor: mobileSlide.background }}
               >

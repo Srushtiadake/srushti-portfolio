@@ -1790,10 +1790,12 @@ html {
 
   .work-showcase--mobile .work-mobile-track {
     display: flex;
+    align-items: flex-start;
     overflow-x: auto;
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
+    transition: height 220ms ease;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
   }
@@ -1804,6 +1806,7 @@ html {
 
   .work-showcase--mobile .work-mobile-slide {
     flex: 0 0 100%;
+    align-self: flex-start;
     scroll-snap-align: start;
     scroll-snap-stop: always;
     padding: 64px 18px 34px;
@@ -1863,10 +1866,13 @@ html {
   }
 
   .home-mobile-menu-button {
-    width: 52px;
-    height: 40px;
+    width: auto;
+    height: auto;
     padding: 0;
-    font-size: 24px;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    font-size: 30px;
     letter-spacing: 0;
     text-transform: none;
   }
