@@ -1372,6 +1372,13 @@ html {
 
   .bento-card--skills {
     order: 6;
+    grid-row: span 2;
+    min-height: 100%;
+  }
+
+  .bento-card--skills p:not(.bento-label) {
+    font-size: 16px;
+    line-height: 1.7;
   }
 
   .bento-card--festival {
