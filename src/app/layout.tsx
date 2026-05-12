@@ -30,6 +30,9 @@ export const metadata: Metadata = {
     "Portfolio",
   ],
   authors: [{ name: "Srushti Adake" }],
+  verification: {
+    google: "6DUlzHP7i45zPz6ngeqZbS2rS0joCX6ty2_R6ENL_hk",
+  },
   openGraph: {
     title: "Srushti Adake — Product Designer",
     description: "Product Designer with 3+ years experience. Previously at Splunk, CBRE, and Capgemini.",
