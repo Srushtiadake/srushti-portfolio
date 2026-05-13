@@ -39,11 +39,20 @@ export const metadata: Metadata = {
     url: "https://srushti-adake.vercel.app",
     siteName: "Srushti Adake Portfolio",
     type: "website",
+    images: [
+      {
+        url: "https://srushti-adake.vercel.app/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Srushti Adake — Product Designer Portfolio",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Srushti Adake — Product Designer",
     description: "Product Designer with 3+ years experience. Previously at Splunk, CBRE, and Capgemini.",
+    images: ["https://srushti-adake.vercel.app/og-image.png"],
   },
 };
 
