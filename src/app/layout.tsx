@@ -30,6 +30,11 @@ export const metadata: Metadata = {
     "Portfolio",
   ],
   authors: [{ name: "Srushti Adake" }],
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon-16x16.png",
+    apple: "/apple-touch-icon.png",
+  },
   verification: {
     google: "6DUlzHP7i45zPz6ngeqZbS2rS0joCX6ty2_R6ENL_hk",
   },
