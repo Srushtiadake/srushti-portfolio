@@ -16,9 +16,9 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Srushti Adake — Product Designer",
+  title: "Srushti Adake — Product Designer Portfolio",
   description:
-    "Product Designer with 3+ years experience in UX Research, AI-powered design, and design systems. Previously at Splunk, CBRE, and Capgemini. MS HCI at UT Austin.",
+    "Product Designer Portfolio — UX Research, AI-powered design, and design systems. Previously at Splunk, CBRE, and Capgemini. MS HCI at UT Austin.",
   keywords: [
     "Srushti Adake",
     "Product Designer",
@@ -34,8 +34,9 @@ export const metadata: Metadata = {
     google: "6DUlzHP7i45zPz6ngeqZbS2rS0joCX6ty2_R6ENL_hk",
   },
   openGraph: {
-    title: "Srushti Adake — Product Designer",
-    description: "Product Designer with 3+ years experience. Previously at Splunk, CBRE, and Capgemini.",
+    title: "Srushti Adake — Product Designer Portfolio",
+    description:
+      "Product Designer Portfolio — UX Research, AI-powered design, and design systems. Previously at Splunk, CBRE, and Capgemini. MS HCI at UT Austin.",
     url: "https://srushti-adake.vercel.app",
     siteName: "Srushti Adake Portfolio",
     type: "website",
@@ -50,8 +51,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Srushti Adake — Product Designer",
-    description: "Product Designer with 3+ years experience. Previously at Splunk, CBRE, and Capgemini.",
+    title: "Srushti Adake — Product Designer Portfolio",
+    description:
+      "Product Designer Portfolio — UX Research, AI-powered design, and design systems. Previously at Splunk, CBRE, and Capgemini. MS HCI at UT Austin.",
     images: ["https://srushti-adake.vercel.app/og-image.png"],
   },
 };
