@@ -31,7 +31,6 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Srushti Adake" }],
   icons: {
-    icon: "/favicon.ico",
     shortcut: "/favicon-16x16.png",
     apple: "/apple-touch-icon.png",
   },
